@@ -66,6 +66,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-选择排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/02/选择排序算法/" class="article-date">
+  <time datetime="2019-04-02T15:42:23.000Z" itemprop="datePublished">2019-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/02/选择排序算法/">选择排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>选择排序算法稳定性:不稳定。<br>选择排序算法时间复杂度:平均时间O(n²),最坏情况O(n²),最好情况O(n)。<br>选择排序算法空间复杂度:O(l)。<br>C++代码手写实现从小到大排序选择排序算法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">//显示序列函数</span><br><span class="line">void output(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">   for(int i=0;i&lt;n;i++)</span><br><span class="line">   &#123;</span><br><span class="line">     cout&lt;&lt;a[i]&lt;&lt;&quot;\t&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">     cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">//输入元素函数</span><br><span class="line">void intput(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">     for(int i=0;i&lt;n;i++)</span><br><span class="line">     &#123;</span><br><span class="line">        a[i]=rand();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">//选择排序算法实现从小到大排序</span><br><span class="line">void selectionSort(int a[],int n)</span><br><span class="line">&#123;       //注意最后一个不用比较故n-1</span><br><span class="line">        for(int i=0;i&lt;n-1;i++)</span><br><span class="line">        &#123; </span><br><span class="line">           //记录最小数下标</span><br><span class="line">           int min=i;</span><br><span class="line">           for(int j=i+1;j&lt;n;j++)</span><br><span class="line">           &#123;</span><br><span class="line">                 //从i下标开始找比min下标对应值更小的数</span><br><span class="line">                 if(a[min]&gt;a[j])</span><br><span class="line">                &#123;</span><br><span class="line">                   //若找到将此下标赋值给min下标,此时此下标为最小数下标</span><br><span class="line">                       min=j;</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;</span><br><span class="line">            //循环一趟下来若最小下标数不等于i本身循环数,则与最小值交换</span><br><span class="line">            if(i!=min)</span><br><span class="line">            &#123;</span><br><span class="line">             swap(a[i],a[min]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主函数实现功能</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n=0;</span><br><span class="line">    int a[20]=&#123;0&#125;;</span><br><span class="line">    cout&lt;&lt;&quot;请输入元素个数&quot;&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    intput(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;原序列&quot;&lt;&lt;endl;</span><br><span class="line">    output(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;选择排序后的序列&quot;&lt;&lt;endl;</span><br><span class="line">    selectionSort(a,n);</span><br><span class="line">    output(a,n);</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结:<br>1.思想:根据找最小值来确定是否进行交换。<br>2.注意:在外循环中循环次数要-1,因为最后一个数不用比较;在内循环中当找到比min更小的数下标值将此下标赋值给min。<br>3.选择排序算法是不稳定算法;时间复杂度平均时间和最坏情况都是O(n²);最好情况是O(n);空间复杂度O(l),以时间换空间。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/02/选择排序算法/" data-id="cjtzzypo000021svtw6dihr9i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-冒泡排序算法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/02/冒泡排序算法/" class="article-date">
@@ -94,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/02/冒泡排序算法/" data-id="cjtzvz96j000040vtpvpdonhy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/02/冒泡排序算法/" data-id="cjtzzypns00001svt0c047s12" class="article-share-link">Share</a>
       
       
     </footer>
@@ -132,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/31/快速排序算法/" data-id="cjtzvz96r000140vta25jkfq5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/31/快速排序算法/" data-id="cjtzzypnx00011svtejbcscsh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,11 +202,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class hello</span><br><span class="line">&#123;</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line">     System.out.printf(&quot;你好！我的个人博客，以后请多多指教。&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class hello</span><br><span class="line">&#123;</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line">     for(int i=1;i&lt;1000;i++)</span><br><span class="line">     &#123;</span><br><span class="line">     System.out.println(&quot;你好!我的个人博客,以后请多多指教.&quot;);</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   for(int i=1;i&lt;1000;i++)</span><br><span class="line">  &#123;</span><br><span class="line">   cout&lt;&lt;&quot;你好!我的个人博客,以后请多多指教.&quot;&lt;&lt;endl;</span><br><span class="line">  &#125;</span><br><span class="line">  system(&quot;pause&quot;);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/30/我的个人博客/" data-id="cjtzvz96u000240vt3d13uqgj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/30/我的个人博客/" data-id="cjtzzypo600031svtqsxk3gkg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -207,6 +246,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/04/02/选择排序算法/">选择排序算法</a>
+          </li>
         
           <li>
             <a href="/2019/04/02/冒泡排序算法/">冒泡排序算法</a>
