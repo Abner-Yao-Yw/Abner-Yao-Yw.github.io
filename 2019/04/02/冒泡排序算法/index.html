@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>冒泡排序算法 | Abner-Yao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="冒泡排序算法稳定性:稳定。冒泡排序算法时间复杂度:平均时间O(n²),最坏情况O(n²),最好情况O(n)。冒泡算法空间复杂度:O(l)。C++代码手写实现从小到大冒泡排序算法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include &amp;lt;stdi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="冒泡排序算法">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/冒泡排序算法/index.html">
+<meta property="og:site_name" content="Abner-Yao">
+<meta property="og:description" content="冒泡排序算法稳定性:稳定。冒泡排序算法时间复杂度:平均时间O(n²),最坏情况O(n²),最好情况O(n)。冒泡算法空间复杂度:O(l)。C++代码手写实现从小到大冒泡排序算法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include &amp;lt;stdi">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-04-02T14:36:56.942Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="冒泡排序算法">
+<meta name="twitter:description" content="冒泡排序算法稳定性:稳定。冒泡排序算法时间复杂度:平均时间O(n²),最坏情况O(n²),最好情况O(n)。冒泡算法空间复杂度:O(l)。C++代码手写实现从小到大冒泡排序算法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include &amp;lt;stdi">
+  
+    <link rel="alternate" href="/atom.xml" title="Abner-Yao" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Abner-Yao</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注后台开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-冒泡排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/02/冒泡排序算法/" class="article-date">
+  <time datetime="2019-04-02T14:00:45.000Z" itemprop="datePublished">2019-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      冒泡排序算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>冒泡排序算法稳定性:稳定。<br>冒泡排序算法时间复杂度:平均时间O(n²),最坏情况O(n²),最好情况O(n)。<br>冒泡算法空间复杂度:O(l)。<br>C++代码手写实现从小到大冒泡排序算法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">//显示序列元素函数</span><br><span class="line">void output(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">  for(int i=0;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">     cout&lt;&lt;a[i]&lt;&lt;&quot;\t&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">     cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">//输入序列元素函数</span><br><span class="line">void input(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">   for(int i=0;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">     a[i]=rand();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//冒泡排序算法实现从小到大排序函数</span><br><span class="line">void bubbleSort(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">    //外循环次数与元素个数有关</span><br><span class="line">    for(int i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">     //内循环次数随i的增加而减少</span><br><span class="line">     for(int j=0;j&lt;n-1-i;j++)</span><br><span class="line">     &#123;</span><br><span class="line">            if(a[j]&gt;a[j+1])</span><br><span class="line">            &#123;</span><br><span class="line">              swap(a[j],a[j+1]);</span><br><span class="line">            &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主函数实现功能</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n=0;</span><br><span class="line">    int a[20]=&#123;0&#125;;</span><br><span class="line">    cout&lt;&lt;&quot;请输入元素的个数&quot;&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    input(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;原序列&quot;&lt;&lt;endl;</span><br><span class="line">    output(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;冒泡排序后序列&quot;&lt;&lt;endl;</span><br><span class="line">    bubbleSort(a,n);</span><br><span class="line">    output(a,n);</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结<br>1.思想:冒泡算法就是两两比较将最大(最小)的值沉于底下,外循环次数是循环元素的个数次,内循环次数随着最大(最小)的值沉于底下而减少,每次内循环次数随i的增大而减少。<br>2.注意:内循环需要n-1因为两两比较每次比较的个数都会比元素个数-1。<br>3.冒泡排序是一种用时间换空间的排序方法,n越小时越好。<br>4.最坏情况是把顺序的排列变成逆序,或者把逆序的数列变成顺序，最差时间复杂度O(n²)只是表示其操作次数的数量级。<br>5.最好的情况是数据本来就有序,复杂度为O(n)。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/02/冒泡排序算法/" data-id="cjtzvz96j000040vtpvpdonhy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/31/快速排序算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">快速排序算法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/02/冒泡排序算法/">冒泡排序算法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/31/快速排序算法/">快速排序算法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/30/我的个人博客/">我的个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Abner<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
