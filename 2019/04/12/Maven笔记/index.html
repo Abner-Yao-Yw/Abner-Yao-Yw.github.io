@@ -7,17 +7,17 @@
   
   <title>Maven笔记 | Abner-Yao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###1.Maven是项目自动化构建工具。 ###2.配置Maven环境M2_HOME ###3.配置阿里镜像远程仓库12345678&amp;lt;mirrors&amp;gt;&amp;lt;mirror&amp;gt;    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;    &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt;    &amp;lt;name&amp;gt;Nexus aliyun&amp;">
+  <meta name="description" content="1.Maven是项目自动化构建工具。2.配置Maven环境M2_HOME3.配置阿里镜像远程仓库12345678&amp;lt;mirrors&amp;gt;&amp;lt;mirror&amp;gt;    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;    &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt;    &amp;lt;name&amp;gt;Nexus aliyun&amp;lt;/name&amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven笔记">
 <meta property="og:url" content="http://yoursite.com/2019/04/12/Maven笔记/index.html">
 <meta property="og:site_name" content="Abner-Yao">
-<meta property="og:description" content="###1.Maven是项目自动化构建工具。 ###2.配置Maven环境M2_HOME ###3.配置阿里镜像远程仓库12345678&amp;lt;mirrors&amp;gt;&amp;lt;mirror&amp;gt;    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;    &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt;    &amp;lt;name&amp;gt;Nexus aliyun&amp;">
+<meta property="og:description" content="1.Maven是项目自动化构建工具。2.配置Maven环境M2_HOME3.配置阿里镜像远程仓库12345678&amp;lt;mirrors&amp;gt;&amp;lt;mirror&amp;gt;    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;    &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt;    &amp;lt;name&amp;gt;Nexus aliyun&amp;lt;/name&amp;gt">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-04-12T17:04:09.888Z">
+<meta property="og:updated_time" content="2019-04-13T05:30:52.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven笔记">
-<meta name="twitter:description" content="###1.Maven是项目自动化构建工具。 ###2.配置Maven环境M2_HOME ###3.配置阿里镜像远程仓库12345678&amp;lt;mirrors&amp;gt;&amp;lt;mirror&amp;gt;    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;    &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt;    &amp;lt;name&amp;gt;Nexus aliyun&amp;">
+<meta name="twitter:description" content="1.Maven是项目自动化构建工具。2.配置Maven环境M2_HOME3.配置阿里镜像远程仓库12345678&amp;lt;mirrors&amp;gt;&amp;lt;mirror&amp;gt;    &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt;    &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt;    &amp;lt;name&amp;gt;Nexus aliyun&amp;lt;/name&amp;gt">
   
     <link rel="alternate" href="/atom.xml" title="Abner-Yao" type="application/atom+xml">
   
@@ -90,15 +90,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###1.Maven是项目自动化构建工具。</p>
-<p>###2.配置Maven环境M2_HOME</p>
-<p>###3.配置阿里镜像远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;nexus-aliyun&lt;/id&gt;</span><br><span class="line">    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">    &lt;name&gt;Nexus aliyun&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure></p>
-<p>###4.配置本地仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;E:\maven\repository&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure></p>
-<p>###5.约定目录结构<br>Maven<br>-src<br>–main<br>—java<br>—resources<br>–test<br>—java<br>—resources</p>
-<p>###6.pom.xml文件：Maven核心配置文件</p>
-<p>###7.坐标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;&lt;/groupId&gt;团队名</span><br><span class="line">&lt;artifactId&gt;&lt;/artufactId&gt;项目名</span><br><span class="line">&lt;version&gt;&lt;/version&gt;版本号</span><br><span class="line">&lt;scope&gt;&lt;/scope&gt;依赖范围:test,compile,provide</span><br></pre></td></tr></table></figure></p>
-<p>###8.仓库<br>远程仓库:<strong><a href="https://mvnrepository.com/,github,gitee" target="_blank" rel="noopener">https://mvnrepository.com/,github,gitee</a></strong><br>本地仓库:当前电脑上的仓库，为当前Maven工程服务。</p>
-<p>###9.生命周期，插件，目标<br><strong>Maven生命周期</strong></p>
+        <p><strong>1.Maven是项目自动化构建工具。</strong><br><strong>2.配置Maven环境M2_HOME</strong><br><strong>3.配置阿里镜像远程仓库</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;nexus-aliyun&lt;/id&gt;</span><br><span class="line">    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">    &lt;name&gt;Nexus aliyun&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.配置本地仓库</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;E:\maven\repository&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>5.约定目录结构</strong><br>Maven<br>-src<br>–main<br>—java<br>—resources<br>–test<br>—java<br>—resources<br><strong>6.pom.xml文件：Maven核心配置文件</strong><br><strong>7.坐标</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;&lt;/groupId&gt;团队名</span><br><span class="line">&lt;artifactId&gt;&lt;/artufactId&gt;项目名</span><br><span class="line">&lt;version&gt;&lt;/version&gt;版本号</span><br><span class="line">&lt;scope&gt;&lt;/scope&gt;依赖范围:test,compile,provide</span><br></pre></td></tr></table></figure></p>
+<p><strong>8.仓库</strong></p>
+<ul>
+<li>1.远程仓库:<strong><a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></strong> github gitee</li>
+<li>2.本地仓库:当前电脑上的仓库，为当前Maven工程服务</li>
+</ul>
+<p><strong>9.生命周期;插件;目标</strong><br>Maven生命周期</p>
 <ul>
 <li>1.clean 清理</li>
 <li>2.validate 核实</li>
@@ -108,33 +108,44 @@
 <li>6.verify 核实</li>
 <li>7.install 安装</li>
 <li>8.site </li>
-<li>9.deploy 部署<br><strong>插件</strong></li>
+<li>9.deploy 部署<br>插件</li>
 <li>1.clean</li>
 <li>2.install</li>
 <li>3.deploy</li>
-<li>4.site<br><strong>目标(命令)</strong></li>
+<li>4.site<br>目标(命令)</li>
 <li>1.mvn clean 清理</li>
 <li>2.mvn compile 编译主程序</li>
 <li>3.mvn test 执行测试程序</li>
 <li>4.mvn test compile 编译测试程序</li>
 <li>5.mvn package 打包</li>
-<li>6.mvn deploy 部署<br><strong>关系:</strong><br><strong>插件-&gt;目标（命令）-&gt;生命周期</strong><br>###依赖:解析依赖信息时会到本地仓库中查找被依赖的Jar包,对于我们开发的Maven工程，使用install插件可以进入本地仓库查找，若不存在则会报错。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>6.mvn deploy 部署</li>
+<li>关系:<br>插件-&gt;目标（命令）-&gt;生命周期</li>
 </ul>
-<p><strong>先install依赖的模块</strong></p>
-<p>###范围依赖</p>
+<p><strong>10.依赖:解析依赖信息时会到本地仓库中查找被依赖的Jar包,对于我们开发的Maven工程，使用install插件可以进入本地仓库查找，若不存在则会报错。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>先install依赖的模块<br><strong>11.范围依赖</strong></p>
 <ul>
 <li>1.complie 对主程序有效，测试程序有效，参与打包部署 例如:spring</li>
 <li>2.test 对主程序无效，测试程序有效，不参与打包部署 例如:junit</li>
-<li>3.provide 对主程序有效，测试程序有效，不参与打包部署，servlet容器中有。例如:servlet-api jstl-api jsp-api<br>###依赖传递性</li>
+<li>3.provide 对主程序有效，测试程序有效，不参与打包部署，servlet容器中有。例如:servlet-api jstl-api jsp-api</li>
+</ul>
+<p><strong>12.依赖传递性</strong></p>
+<ul>
 <li>1.直接依赖 例如:上下级</li>
 <li>2.间接依赖 例如:上级下下级</li>
-<li>3.非compile范围不能依赖传递 继承和聚合出现原因<br>###依赖排除<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;exclusions&gt;</span><br><span class="line">     &lt;exclusion&gt;</span><br><span class="line">       &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">        &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>3.非compile范围不能依赖传递 继承出现的原因</li>
 </ul>
-<p>###模块Jar包冲突<br><strong>最短路径优先原则</strong><br><strong>相同路劲pom.xml中优先声明原则</strong></p>
-<p>###继承<br><strong>原因：由于test范围不能传递所以造成在各个模块中出现版本不一致</strong><br><strong>作用:统一管理各个模块的test依赖</strong></p>
+<p><strong>13.依赖排除</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;exclusions&gt;</span><br><span class="line">     &lt;exclusion&gt;</span><br><span class="line">       &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">        &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>14.模块Jar包冲突</strong></p>
 <ul>
+<li>1.最短路径优先原则</li>
+<li>2.相同路劲pom.xml中优先声明原则</li>
+<li>3.解决办法:版本统一</li>
+</ul>
+<p><strong>15.继承</strong></p>
+<ul>
+<li>1.原因：由于test范围不能传递所以造成在各个模块中出现版本不一致</li>
+<li>2.作用:统一管理各个模块的test依赖</li>
+<li>3.方法：</li>
 <li>1.父工程统一test依赖版本</li>
 <li>2.子工程删除test依赖版本</li>
 <li>3.子工程声明父工程引用</li>
@@ -142,14 +153,23 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">        &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>清理-&gt;编译-&gt;测试-&gt;报告-&gt;安装（若不通过则不可以打包）-&gt;打包-&gt;部署</strong><br><strong>注意:依赖父工程的子工程要先install父工程再install子工程</strong></p>
-<p>###版本统一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;spring.version&gt;5.0.0.RELEASE&lt;/spring.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br></pre></td></tr></table></figure></p>
-<p>###聚合:一键安装各个模块(从属父子依赖工程不用先安装父工程再安装子工程，可以一起安装不分顺序)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;modules&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">&lt;/modules&gt;</span><br></pre></td></tr></table></figure></p>
-<p>#总结：<br><strong>优点:</strong></p>
+<ul>
+<li>1.清理-&gt;编译-&gt;测试-&gt;报告-&gt;安装（若不通过则不可以打包）-&gt;打包-&gt;部署</li>
+<li>2.注意:依赖父工程的子工程要先install父工程再install子工程 聚合出现的原因</li>
+</ul>
+<p><strong>16.版本统一</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;spring.version&gt;5.0.0.RELEASE&lt;/spring.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>17.聚合:一键安装各个模块(从属父子依赖工程不用先安装父工程再安装子工程，可以一起安装不分顺序)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;modules&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">&lt;/modules&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>18.优点:</strong></p>
 <ul>
 <li>1.将项目划分为各个模块高内聚低耦合</li>
-<li>2.不要到官网复制粘贴jar包通过坐标gav将jar包从远程库下载到本地库<br>，而项目只需要一个pom.xml文件即可不用浪费空间<br><strong>缺点</strong></li>
-<li>1.若项目过于庞大,需要的坐标过多则pom.xml文件就会变得臃肿。<br><strong>选择</strong></li>
+<li>2.不要到官网复制粘贴jar包通过坐标gav将jar包从远程库下载到本地库而项目只需要一个pom.xml文件即可不用浪费空间</li>
+</ul>
+<p><strong>19.缺点</strong></p>
+<ul>
+<li>1.若项目过于庞大,需要的坐标过多则pom.xml文件就会变得臃肿</li>
+</ul>
+<p><strong>20.选择</strong></p>
+<ul>
 <li>1.小项目用Maven自动化构建工程。</li>
 <li>2.大项目用Gradle自动化构建工程。</li>
 </ul>
@@ -157,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/12/Maven笔记/" data-id="cjuebnh510003xwvt51grmeo7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/12/Maven笔记/" data-id="cjuf6b5zj000110vtcyd5y1al" class="article-share-link">Share</a>
       
       
     </footer>

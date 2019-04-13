@@ -7,14 +7,17 @@
   
   <title>Gradle笔记 | Abner-Yao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="1.gradle是自动化构建工具2.gradle使用Groovy语言解决了maven的xml文件的臃肿3.配置gradle环境 GRADLE_HOME4.配置gradle本地仓库.gradle GRADLE_USER_HOME5.配置阿里镜像仓库init.gradle文件1234567891011121314151617181920212223allprojects&amp;#123;    reposi">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Gradle笔记">
 <meta property="og:url" content="http://yoursite.com/2019/04/12/Gradle笔记/index.html">
 <meta property="og:site_name" content="Abner-Yao">
+<meta property="og:description" content="1.gradle是自动化构建工具2.gradle使用Groovy语言解决了maven的xml文件的臃肿3.配置gradle环境 GRADLE_HOME4.配置gradle本地仓库.gradle GRADLE_USER_HOME5.配置阿里镜像仓库init.gradle文件1234567891011121314151617181920212223allprojects&amp;#123;    reposi">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-04-12T15:56:44.651Z">
+<meta property="og:updated_time" content="2019-04-13T07:23:03.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle笔记">
+<meta name="twitter:description" content="1.gradle是自动化构建工具2.gradle使用Groovy语言解决了maven的xml文件的臃肿3.配置gradle环境 GRADLE_HOME4.配置gradle本地仓库.gradle GRADLE_USER_HOME5.配置阿里镜像仓库init.gradle文件1234567891011121314151617181920212223allprojects&amp;#123;    reposi">
   
     <link rel="alternate" href="/atom.xml" title="Abner-Yao" type="application/atom+xml">
   
@@ -87,11 +90,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><strong>1.gradle是自动化构建工具</strong><br><strong>2.gradle使用Groovy语言解决了maven的xml文件的臃肿</strong><br><strong>3.配置gradle环境 GRADLE_HOME</strong><br><strong>4.配置gradle本地仓库.gradle</strong> GRADLE_USER_HOME<br><strong>5.配置阿里镜像仓库init.gradle文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">allprojects&#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        def ALIYUN_REPOSITORY_URL = &apos;http://maven.aliyun.com/nexus/content/groups/public&apos;</span><br><span class="line">        def ALIYUN_JCENTER_URL = &apos;http://maven.aliyun.com/nexus/content/repositories/jcenter&apos;</span><br><span class="line">        all &#123; ArtifactRepository repo -&gt;</span><br><span class="line">            if(repo instanceof MavenArtifactRepository)&#123;</span><br><span class="line">                def url = repo.url.toString()</span><br><span class="line">                if (url.startsWith(&apos;https://repo1.maven.org/maven2&apos;)) &#123;</span><br><span class="line">                    project.logger.lifecycle &quot;Repository $&#123;repo.url&#125; replaced by $ALIYUN_REPOSITORY_URL.&quot;</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">                if (url.startsWith(&apos;https://jcenter.bintray.com/&apos;)) &#123;</span><br><span class="line">                    project.logger.lifecycle &quot;Repository $&#123;repo.url&#125; replaced by $ALIYUN_JCENTER_URL.&quot;</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">                url ALIYUN_REPOSITORY_URL</span><br><span class="line">            url ALIYUN_JCENTER_URL</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>6.build.gradle文件</strong></p>
+<ul>
+<li>1.dependencies：依赖jar包 scopeXXX group:XXX,name:XXX,version:XXX</li>
+<li>2.repositories:mavenLocal()本地仓库查找jar包;mavenCentral()远程中央仓库查找jar包</li>
+<li>3.plugins:生成的打包文件 apply plugin: ‘java’ ,apply plugin ‘war’</li>
+<li>4.group:团队</li>
+<li>5.version:版本</li>
+<li>6.sourceCompatibility:jdk版本</li>
+</ul>
+<p><strong>7.gradle tasks</strong></p>
+<ul>
+<li>1.assemble: 编译</li>
+<li>2.build：编译并执行测试</li>
+<li>3.clean：删除build目录</li>
+<li>4.jar:生成jar包</li>
+<li>5.war:生成war包</li>
+<li>6.test：执行单元测试</li>
+</ul>
+<p><strong>8.maven项目转gradle项目</strong></p>
+<ul>
+<li>1.cd 根目录</li>
+<li>2.gradle init –type pom</li>
+</ul>
+<p><strong>9.约定的gradle结构目录</strong><br>gradle<br>-src<br>–main<br>—java<br>—resources<br>–test<br>—java<br>—resources<br><strong>10.gradle版本控制</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def springVersion = &quot;5.0.0.RELEASE&quot;</span><br><span class="line">compile(&quot;org.springframework:spring-core:$springVersion&quot;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>11.gradle子工程继承父工程</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;xxxx&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>12.gradle子工程模块依赖</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies&#123;</span><br><span class="line">    compile project(&quot;:xxx&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>13.gradle项目打包</strong></p>
+<ul>
+<li>task-&gt;build-&gt;jar/war<br>部署远程服务器运行</li>
+<li>1.tools-&gt;Deployment-&gt;configuration-&gt;SFTP</li>
+<li>2.tools-&gt;start ssh session-&gt;SFTP</li>
+<li>3.tools-&gt;Deployment-&gt;Browse remote host-&gt;coyp war -&gt;tomcat-&gt;webapp</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/12/Gradle笔记/" data-id="cjuebnh4s0000xwvtproco8vq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/12/Gradle笔记/" data-id="cjuf6b5zb000010vtvbeopauq" class="article-share-link">Share</a>
       
       
     </footer>
