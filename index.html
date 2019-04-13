@@ -88,11 +88,97 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><strong>1.git是分布式版本控制工具</strong><br><strong>2.git分为工作区-&gt;暂存区-&gt;本地仓库</strong><br><strong>3.git基本操作</strong></p>
+<ul>
+<li>1.初始化本地仓库 git init .git文件</li>
+<li>2.设置签名<br><strong>用户级别</strong><br>git config user.name XXX<br>git config user.email xxx<br><strong>系统级别</strong><br>git config -global user.name xxx<br>git config -global user.email xxx</li>
+<li>3.加入暂存区 git add [fileName]</li>
+<li>4.提交到本地库 git commit -m “xxx” [fileName]</li>
+<li>5.查看仓库状态 git status</li>
+<li>6.回退上一级状态 git rm –cached</li>
+<li>7.查看历史版本 git log /git relog git /git log –oneline(只显示过去)</li>
+<li><p>8.版本回退<br><strong>索引操作</strong><br>git reset –hard index<br><strong>使用^符号后退</strong><br>git reset –hard HEAD^<br><strong>使用~符号后退</strong><br>git reset –hard HEAD~n</p>
+</li>
+<li><p>9.比较文件 git diff fileName;git diff HEAD;git diff HEAD fileName</p>
+</li>
+</ul>
+<p><strong>4.HEAD指针移动方式</strong></p>
+<ul>
+<li>1.soft本地库移动</li>
+<li>2.mixed本地库移动，暂存区移动</li>
+<li>3.hard本地库移动，暂存区移动，工作区移动</li>
+</ul>
+<p><strong>5.删除文件并找回</strong></p>
+<ul>
+<li>1.git init</li>
+<li>2.vim fileName</li>
+<li>3.git add fileName</li>
+<li>4.git commit fileName</li>
+<li>5.vim fileName</li>
+<li>6.rm fileName</li>
+<li>7.git reset –hard index<br><strong>or</strong></li>
+<li>1.git init </li>
+<li>2.vim fileName</li>
+<li>3.git add fileName</li>
+<li>4.git commit fileName</li>
+<li>5.rm fileName</li>
+<li>6.git reset –hard HEAD</li>
+</ul>
+<p><strong>6.分支操作</strong></p>
+<ul>
+<li>1.查看分支 git branch -v</li>
+<li>2.创建分支 git add branch branchName</li>
+<li>3.切换分支 git checkout branchName</li>
+<li>4.合并分支 git merge branchName-&gt;B  A 合并 B </li>
+<li>5.master branch：主分支</li>
+<li>6.develop branch：开发分支</li>
+<li>7.feature branch：功能分支</li>
+<li>8.release branch：预发布分支</li>
+<li>9.hotfix branch：bug修复分支</li>
+</ul>
+<p><strong>7.分支冲突</strong></p>
+<ul>
+<li>1.原因:A分支修改文件提交 B分支修改同一个文件提交 仓库不知道以哪个为标准</li>
+<li>2.解决办法:<br><strong>编辑文件删除特殊符号</strong><br><strong>git add fileName</strong><br><strong>git commit -m “” 不带文件名</strong></li>
+</ul>
+<p><strong>8.Git原理</strong></p>
+<ul>
+<li>1.Hash 算法:SHA-1算法</li>
+<li>2.版本控制:链表</li>
+<li>3.分支管理:HEAD指针指向分支</li>
+</ul>
+<p><strong>9.协同开发</strong></p>
+<ul>
+<li>1.本地库上传到远程库<br><strong> git remote -v 查看远程库</strong><br><strong> git remote add XXX <a href="https://wwww.xxxx.git" target="_blank" rel="noopener">https://wwww.xxxx.git</a> 命名远程库</strong><br><strong> git push xxx master(branch) 上传到远程库</strong></li>
+<li>2.远程库克隆到本地库<br><strong> git clone <a href="https://www.xxxx.git" target="_blank" rel="noopener">https://www.xxxx.git</a></strong><br><strong>效果:完整将远程库下载到本地库且初始化了本地库</strong></li>
+<li>3.加入成员从本地库上传到远程库<br><strong>1.setting-&gt;Collaborators-&gt;email</strong><br><strong>2.复制邀请链接发送给邀请人-&gt;accept</strong><br><strong>3.git push xxx xxx</strong></li>
+<li>4.从本地库拉取项目<br><strong>git pull xxx xxx / git fetch xxx xxx pull=fetch+merg </strong></li>
+</ul>
+<p><strong>10.跨团队开发</strong></p>
+<ul>
+<li>1.fork</li>
+<li>2.pull-&gt;本地修改推送到远程</li>
+<li>3.pull request-&gt;new pull request<br><strong>11.SSH登录</strong></li>
+<li>1.cd ~,</li>
+<li>2.rm -r .ssh/</li>
+<li>3.ssh-keygen -t rsa -C</li>
+<li>4.cd -ssh/</li>
+<li>5.cat id-rsa.pub</li>
+<li>6.coyp</li>
+<li>7.add id-rsa.pub</li>
+<li>8.git remote add origin-ssh</li>
+</ul>
+<p><strong>12.git工作流</strong></p>
+<ul>
+<li>1.集中式</li>
+<li>2.gitFlow 团队协同开发</li>
+<li>3.Forking 跨团队开发</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/12/Git笔记/" data-id="cjuf6b5zl000210vtppwhbt6w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/12/Git笔记/" data-id="cjufa0e3200005wvtpdsc8ugv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -151,9 +237,10 @@
 <p><strong>9.约定的gradle结构目录</strong><br>gradle<br>-src<br>–main<br>—java<br>—resources<br>–test<br>—java<br>—resources<br><strong>10.gradle版本控制</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def springVersion = &quot;5.0.0.RELEASE&quot;</span><br><span class="line">compile(&quot;org.springframework:spring-core:$springVersion&quot;)</span><br></pre></td></tr></table></figure></p>
 <p><strong>11.gradle子工程继承父工程</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;xxxx&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>12.gradle子工程模块依赖</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies&#123;</span><br><span class="line">    compile project(&quot;:xxx&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>13.gradle项目打包</strong></p>
+<p><strong>13.gradle项目打包部署</strong></p>
 <ul>
-<li>task-&gt;build-&gt;jar/war<br>部署远程服务器运行</li>
+<li>task-&gt;build-&gt;jar/war</li>
+<li>部署远程服务器运行</li>
 <li>1.tools-&gt;Deployment-&gt;configuration-&gt;SFTP</li>
 <li>2.tools-&gt;start ssh session-&gt;SFTP</li>
 <li>3.tools-&gt;Deployment-&gt;Browse remote host-&gt;coyp war -&gt;tomcat-&gt;webapp</li>
@@ -162,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/12/Gradle笔记/" data-id="cjuf6b5zb000010vtvbeopauq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/12/Gradle笔记/" data-id="cjufa0e3c00025wvtbbzg2gpz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/12/Maven笔记/" data-id="cjuf6b5zj000110vtcyd5y1al" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/12/Maven笔记/" data-id="cjufa0e3e00035wvtenv2apu9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/12/IDEA常用快捷键/" data-id="cjuf6b5zm000310vt3j8yv2k4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/12/IDEA常用快捷键/" data-id="cjufa0e3a00015wvto2t7folc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -356,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/02/选择排序算法/" data-id="cjuf6b60b000710vt57myzxcx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/02/选择排序算法/" data-id="cjufa0e3k00075wvtwr0ic3ag" class="article-share-link">Share</a>
       
       
     </footer>
@@ -394,7 +481,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/02/冒泡排序算法/" data-id="cjuf6b608000510vtaesg11ag" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/02/冒泡排序算法/" data-id="cjufa0e3g00045wvtzku2kqkt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -432,7 +519,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/31/快速排序算法/" data-id="cjuf6b60a000610vtv97s44qn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/31/快速排序算法/" data-id="cjufa0e3h00055wvtjihhb9o1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -469,7 +556,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/30/我的个人博客/" data-id="cjuf6b5zo000410vtluemlp4d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/30/我的个人博客/" data-id="cjufa0e3j00065wvtxyh1uy9x" class="article-share-link">Share</a>
       
       
     </footer>
