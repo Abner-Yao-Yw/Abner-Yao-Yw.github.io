@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Abner-Yao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Abner-Yao">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Abner-Yao">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Abner-Yao">
+  
+    <link rel="alternate" href="/atom.xml" title="Abner-Yao" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Abner-Yao</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注后台开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="w-Git笔记" class="article article-type-w" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/12/Git笔记/" class="article-date">
+  <time datetime="2019-04-12T15:58:50.000Z" itemprop="datePublished">2019-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/12/Git笔记/">Git笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>1.git是分布式版本控制工具</strong><br><strong>2.git分为工作区-&gt;暂存区-&gt;本地仓库</strong><br><strong>3.git基本操作</strong></p>
+<ul>
+<li>1.初始化本地仓库 git init .git文件</li>
+<li>2.设置签名<br><strong>用户级别</strong><br>git config user.name XXX<br>git config user.email xxx<br><strong>系统级别</strong><br>git config -global user.name xxx<br>git config -global user.email xxx</li>
+<li>3.加入暂存区 git add [fileName]</li>
+<li>4.提交到本地库 git commit -m “xxx” [fileName]</li>
+<li>5.查看仓库状态 git status</li>
+<li>6.回退上一级状态 git rm –cached</li>
+<li>7.查看历史版本 git log /git relog git /git log –oneline(只显示过去)</li>
+<li><p>8.版本回退<br><strong>索引操作</strong><br>git reset –hard index<br><strong>使用^符号后退</strong><br>git reset –hard HEAD^<br><strong>使用~符号后退</strong><br>git reset –hard HEAD~n</p>
+</li>
+<li><p>9.比较文件 git diff fileName;git diff HEAD;git diff HEAD fileName</p>
+</li>
+</ul>
+<p><strong>4.HEAD指针移动方式</strong></p>
+<ul>
+<li>1.soft本地库移动</li>
+<li>2.mixed本地库移动，暂存区移动</li>
+<li>3.hard本地库移动，暂存区移动，工作区移动</li>
+</ul>
+<p><strong>5.删除文件并找回</strong></p>
+<ul>
+<li>1.git init</li>
+<li>2.vim fileName</li>
+<li>3.git add fileName</li>
+<li>4.git commit fileName</li>
+<li>5.vim fileName</li>
+<li>6.rm fileName</li>
+<li>7.git reset –hard index<br><strong>or</strong></li>
+<li>1.git init </li>
+<li>2.vim fileName</li>
+<li>3.git add fileName</li>
+<li>4.git commit fileName</li>
+<li>5.rm fileName</li>
+<li>6.git reset –hard HEAD</li>
+</ul>
+<p><strong>6.分支操作</strong></p>
+<ul>
+<li>1.查看分支 git branch -v</li>
+<li>2.创建分支 git add branch branchName</li>
+<li>3.切换分支 git checkout branchName</li>
+<li>4.合并分支 git merge branchName-&gt;B  A 合并 B </li>
+<li>5.master branch：主分支</li>
+<li>6.develop branch：开发分支</li>
+<li>7.feature branch：功能分支</li>
+<li>8.release branch：预发布分支</li>
+<li>9.hotfix branch：bug修复分支</li>
+</ul>
+<p><strong>7.分支冲突</strong></p>
+<ul>
+<li>1.原因:A分支修改文件提交 B分支修改同一个文件提交 仓库不知道以哪个为标准</li>
+<li>2.解决办法:<br><strong>编辑文件删除特殊符号</strong><br><strong>git add fileName</strong><br><strong>git commit -m “” 不带文件名</strong></li>
+</ul>
+<p><strong>8.Git原理</strong></p>
+<ul>
+<li>1.Hash 算法:SHA-1算法</li>
+<li>2.版本控制:链表</li>
+<li>3.分支管理:HEAD指针指向分支</li>
+</ul>
+<p><strong>9.协同开发</strong></p>
+<ul>
+<li>1.本地库上传到远程库<br><strong> git remote -v 查看远程库</strong><br><strong> git remote add XXX <a href="https://wwww.xxxx.git" target="_blank" rel="noopener">https://wwww.xxxx.git</a> 命名远程库</strong><br><strong> git push xxx master(branch) 上传到远程库</strong></li>
+<li>2.远程库克隆到本地库<br><strong> git clone <a href="https://www.xxxx.git" target="_blank" rel="noopener">https://www.xxxx.git</a></strong><br><strong>效果:完整将远程库下载到本地库且初始化了本地库</strong></li>
+<li>3.加入成员从本地库上传到远程库<br><strong>1.setting-&gt;Collaborators-&gt;email</strong><br><strong>2.复制邀请链接发送给邀请人-&gt;accept</strong><br><strong>3.git push xxx xxx</strong></li>
+<li>4.从本地库拉取项目<br><strong>git pull xxx xxx / git fetch xxx xxx pull=fetch+merg </strong></li>
+</ul>
+<p><strong>10.跨团队开发</strong></p>
+<ul>
+<li>1.fork</li>
+<li>2.pull-&gt;本地修改推送到远程</li>
+<li>3.pull request-&gt;new pull request<br><strong>11.SSH登录</strong></li>
+<li>1.cd ~,</li>
+<li>2.rm -r .ssh/</li>
+<li>3.ssh-keygen -t rsa -C</li>
+<li>4.cd -ssh/</li>
+<li>5.cat id-rsa.pub</li>
+<li>6.coyp</li>
+<li>7.add id-rsa.pub</li>
+<li>8.git remote add origin-ssh</li>
+</ul>
+<p><strong>12.git工作流</strong></p>
+<ul>
+<li>1.集中式</li>
+<li>2.gitFlow 团队协同开发</li>
+<li>3.Forking 跨团队开发</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/12/Git笔记/" data-id="cjunyp6320001rsvthuzsq1t0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Gradle笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/12/Gradle笔记/" class="article-date">
+  <time datetime="2019-04-12T15:56:44.000Z" itemprop="datePublished">2019-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/12/Gradle笔记/">Gradle笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>1.gradle是自动化构建工具</strong><br><strong>2.gradle使用Groovy语言解决了maven的xml文件的臃肿</strong><br><strong>3.配置gradle环境 GRADLE_HOME</strong><br><strong>4.配置gradle本地仓库.gradle</strong> GRADLE_USER_HOME<br><strong>5.配置阿里镜像仓库init.gradle文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">allprojects&#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        def ALIYUN_REPOSITORY_URL = &apos;http://maven.aliyun.com/nexus/content/groups/public&apos;</span><br><span class="line">        def ALIYUN_JCENTER_URL = &apos;http://maven.aliyun.com/nexus/content/repositories/jcenter&apos;</span><br><span class="line">        all &#123; ArtifactRepository repo -&gt;</span><br><span class="line">            if(repo instanceof MavenArtifactRepository)&#123;</span><br><span class="line">                def url = repo.url.toString()</span><br><span class="line">                if (url.startsWith(&apos;https://repo1.maven.org/maven2&apos;)) &#123;</span><br><span class="line">                    project.logger.lifecycle &quot;Repository $&#123;repo.url&#125; replaced by $ALIYUN_REPOSITORY_URL.&quot;</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">                if (url.startsWith(&apos;https://jcenter.bintray.com/&apos;)) &#123;</span><br><span class="line">                    project.logger.lifecycle &quot;Repository $&#123;repo.url&#125; replaced by $ALIYUN_JCENTER_URL.&quot;</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">                url ALIYUN_REPOSITORY_URL</span><br><span class="line">            url ALIYUN_JCENTER_URL</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>6.build.gradle文件</strong></p>
+<ul>
+<li>1.dependencies：依赖jar包 scopeXXX group:XXX,name:XXX,version:XXX</li>
+<li>2.repositories:mavenLocal()本地仓库查找jar包;mavenCentral()远程中央仓库查找jar包</li>
+<li>3.plugins:生成的打包文件 apply plugin: ‘java’ ,apply plugin ‘war’</li>
+<li>4.group:团队</li>
+<li>5.version:版本</li>
+<li>6.sourceCompatibility:jdk版本</li>
+</ul>
+<p><strong>7.gradle tasks</strong></p>
+<ul>
+<li>1.assemble: 编译</li>
+<li>2.build：编译并执行测试</li>
+<li>3.clean：删除build目录</li>
+<li>4.jar:生成jar包</li>
+<li>5.war:生成war包</li>
+<li>6.test：执行单元测试</li>
+</ul>
+<p><strong>8.maven项目转gradle项目</strong></p>
+<ul>
+<li>1.cd 根目录</li>
+<li>2.gradle init –type pom</li>
+</ul>
+<p><strong>9.约定的gradle结构目录</strong><br>gradle<br>-src<br>–main<br>—java<br>—resources<br>–test<br>—java<br>—resources<br><strong>10.gradle版本控制</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def springVersion = &quot;5.0.0.RELEASE&quot;</span><br><span class="line">compile(&quot;org.springframework:spring-core:$springVersion&quot;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>11.gradle子工程继承父工程</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;xxxx&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>12.gradle子工程模块依赖</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies&#123;</span><br><span class="line">    compile project(&quot;:xxx&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>13.gradle项目打包部署</strong></p>
+<ul>
+<li>task-&gt;build-&gt;jar/war</li>
+<li>部署远程服务器运行</li>
+<li>1.tools-&gt;Deployment-&gt;configuration-&gt;SFTP</li>
+<li>2.tools-&gt;start ssh session-&gt;SFTP</li>
+<li>3.tools-&gt;Deployment-&gt;Browse remote host-&gt;coyp war -&gt;tomcat-&gt;webapp</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/12/Gradle笔记/" data-id="cjunyp62u0000rsvt53ckah7w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Maven笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/12/Maven笔记/" class="article-date">
+  <time datetime="2019-04-12T15:56:29.000Z" itemprop="datePublished">2019-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/12/Maven笔记/">Maven笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>1.Maven是项目自动化构建工具。</strong><br><strong>2.配置Maven环境M2_HOME</strong><br><strong>3.配置阿里镜像远程仓库</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;nexus-aliyun&lt;/id&gt;</span><br><span class="line">    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">    &lt;name&gt;Nexus aliyun&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.配置本地仓库</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;E:\maven\repository&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>5.约定目录结构</strong><br>Maven<br>-src<br>–main<br>—java<br>—resources<br>–test<br>—java<br>—resources<br><strong>6.pom.xml文件：Maven核心配置文件</strong><br><strong>7.坐标</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;&lt;/groupId&gt;团队名</span><br><span class="line">&lt;artifactId&gt;&lt;/artufactId&gt;项目名</span><br><span class="line">&lt;version&gt;&lt;/version&gt;版本号</span><br><span class="line">&lt;scope&gt;&lt;/scope&gt;依赖范围:test,compile,provide</span><br></pre></td></tr></table></figure></p>
+<p><strong>8.仓库</strong></p>
+<ul>
+<li>1.远程仓库:<strong><a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></strong> github gitee</li>
+<li>2.本地仓库:当前电脑上的仓库，为当前Maven工程服务</li>
+</ul>
+<p><strong>9.生命周期;插件;目标</strong><br>Maven生命周期</p>
+<ul>
+<li>1.clean 清理</li>
+<li>2.validate 核实</li>
+<li>3.compile 编译</li>
+<li>4.test 测试</li>
+<li>5.package 打包 </li>
+<li>6.verify 核实</li>
+<li>7.install 安装</li>
+<li>8.site </li>
+<li>9.deploy 部署<br>插件</li>
+<li>1.clean</li>
+<li>2.install</li>
+<li>3.deploy</li>
+<li>4.site<br>目标(命令)</li>
+<li>1.mvn clean 清理</li>
+<li>2.mvn compile 编译主程序</li>
+<li>3.mvn test 执行测试程序</li>
+<li>4.mvn test compile 编译测试程序</li>
+<li>5.mvn package 打包</li>
+<li>6.mvn deploy 部署</li>
+<li>关系:<br>插件-&gt;目标（命令）-&gt;生命周期</li>
+</ul>
+<p><strong>10.依赖:解析依赖信息时会到本地仓库中查找被依赖的Jar包,对于我们开发的Maven工程，使用install插件可以进入本地仓库查找，若不存在则会报错。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>先install依赖的模块<br><strong>11.范围依赖</strong></p>
+<ul>
+<li>1.complie 对主程序有效，测试程序有效，参与打包部署 例如:spring</li>
+<li>2.test 对主程序无效，测试程序有效，不参与打包部署 例如:junit</li>
+<li>3.provide 对主程序有效，测试程序有效，不参与打包部署，servlet容器中有。例如:servlet-api jstl-api jsp-api</li>
+</ul>
+<p><strong>12.依赖传递性</strong></p>
+<ul>
+<li>1.直接依赖 例如:上下级</li>
+<li>2.间接依赖 例如:上级下下级</li>
+<li>3.非compile范围不能依赖传递 继承出现的原因</li>
+</ul>
+<p><strong>13.依赖排除</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;exclusions&gt;</span><br><span class="line">     &lt;exclusion&gt;</span><br><span class="line">       &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">        &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>14.模块Jar包冲突</strong></p>
+<ul>
+<li>1.最短路径优先原则</li>
+<li>2.相同路劲pom.xml中优先声明原则</li>
+<li>3.解决办法:版本统一</li>
+</ul>
+<p><strong>15.继承</strong></p>
+<ul>
+<li>1.原因：由于test范围不能传递所以造成在各个模块中出现版本不一致</li>
+<li>2.作用:统一管理各个模块的test依赖</li>
+<li>3.方法：</li>
+<li>1.父工程统一test依赖版本</li>
+<li>2.子工程删除test依赖版本</li>
+<li>3.子工程声明父工程引用</li>
+<li>4.子工程删除和父工程相同的坐标<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.11&lt;/version&gt;</span><br><span class="line">         &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;artifactId&gt;&lt;/artifactId&gt;</span><br><span class="line">        &lt;groupId&gt;&lt;/groupId&gt;</span><br><span class="line">        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>1.清理-&gt;编译-&gt;测试-&gt;报告-&gt;安装（若不通过则不可以打包）-&gt;打包-&gt;部署</li>
+<li>2.注意:依赖父工程的子工程要先install父工程再install子工程 聚合出现的原因</li>
+</ul>
+<p><strong>16.版本统一</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;spring.version&gt;5.0.0.RELEASE&lt;/spring.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>17.聚合:一键安装各个模块(从属父子依赖工程不用先安装父工程再安装子工程，可以一起安装不分顺序)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;modules&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;&lt;/module&gt;</span><br><span class="line">&lt;/modules&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>18.优点:</strong></p>
+<ul>
+<li>1.将项目划分为各个模块高内聚低耦合</li>
+<li>2.不要到官网复制粘贴jar包通过坐标gav将jar包从远程库下载到本地库而项目只需要一个pom.xml文件即可不用浪费空间</li>
+</ul>
+<p><strong>19.缺点</strong></p>
+<ul>
+<li>1.若项目过于庞大,需要的坐标过多则pom.xml文件就会变得臃肿</li>
+</ul>
+<p><strong>20.选择</strong></p>
+<ul>
+<li>1.小项目用Maven自动化构建工程。</li>
+<li>2.大项目用Gradle自动化构建工程。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/12/Maven笔记/" data-id="cjunyp6360004rsvtddhres33" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-IDEA常用快捷键笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/12/IDEA常用快捷键笔记/" class="article-date">
+  <time datetime="2019-04-12T14:53:58.000Z" itemprop="datePublished">2019-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/12/IDEA常用快捷键笔记/">IDEA常用快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Alt+Insert可以生成构造器/Getter/Setter</li>
+<li>Ctrl+Alt+T可以把代码包在一个块内</li>
+<li>Ctrl+Enter导入包自动修正</li>
+<li>Ctrl+Alt+L格式化代码</li>
+<li>Ctrl+R替换文本</li>
+<li>Ctrl+F查找文本</li>
+<li>Alt+Shift+Up/Down上/下移一行</li>
+<li>Ctrl+X删除行</li>
+<li>Ctrl+D复制行</li>
+<li>Ctrl+/或Ctrl+Shift+/注释</li>
+<li>Ctrl+O重写方法</li>
+<li>Ctrl+I实现方法</li>
+<li>Ctrl+Y删除当前行</li>
+<li>Shift+F6重命名</li>
+<li>ctrl + alt +B查找接口的实现类</li>
+<li>ctrl + h查看类或接口的继承关系</li>
+<li>alter + Enter强制转换类型</li>
+<li>Ctrl+Shift+Alt+N类名查找类</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/12/IDEA常用快捷键笔记/" data-id="cjunyp6350003rsvt54iwa2a6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-选择排序算法笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/02/选择排序算法笔记/" class="article-date">
+  <time datetime="2019-04-02T15:42:23.000Z" itemprop="datePublished">2019-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/02/选择排序算法笔记/">选择排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>选择排序算法稳定性:不稳定。</li>
+<li>选择排序算法时间复杂度:平均时间O(n²),最坏情况O(n²),最好情况O(n)。</li>
+<li>选择排序算法空间复杂度:O(l)。<h1 id="C-代码手写实现从小到大排序选择排序算法"><a href="#C-代码手写实现从小到大排序选择排序算法" class="headerlink" title="C++代码手写实现从小到大排序选择排序算法"></a>C++代码手写实现从小到大排序选择排序算法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">//显示序列函数</span><br><span class="line">void output(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">   for(int i=0;i&lt;n;i++)</span><br><span class="line">   &#123;</span><br><span class="line">     cout&lt;&lt;a[i]&lt;&lt;&quot;\t&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">     cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">//输入元素函数</span><br><span class="line">void intput(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">     for(int i=0;i&lt;n;i++)</span><br><span class="line">     &#123;</span><br><span class="line">        a[i]=rand();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">//选择排序算法实现从小到大排序</span><br><span class="line">void selectionSort(int a[],int n)</span><br><span class="line">&#123;       //注意最后一个不用比较故n-1</span><br><span class="line">        for(int i=0;i&lt;n-1;i++)</span><br><span class="line">        &#123; </span><br><span class="line">           //记录最小数下标</span><br><span class="line">           int min=i;</span><br><span class="line">           for(int j=i+1;j&lt;n;j++)</span><br><span class="line">           &#123;</span><br><span class="line">                 //从i下标开始找比min下标对应值更小的数</span><br><span class="line">                 if(a[min]&gt;a[j])</span><br><span class="line">                &#123;</span><br><span class="line">                   //若找到将此下标赋值给min下标,此时此下标为最小数下标</span><br><span class="line">                       min=j;</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;</span><br><span class="line">            //循环一趟下来若最小下标数不等于i本身循环数,则与最小值交换</span><br><span class="line">            if(i!=min)</span><br><span class="line">            &#123;</span><br><span class="line">             swap(a[i],a[min]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主函数实现功能</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n=0;</span><br><span class="line">    int a[20]=&#123;0&#125;;</span><br><span class="line">    cout&lt;&lt;&quot;请输入元素个数&quot;&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    intput(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;原序列&quot;&lt;&lt;endl;</span><br><span class="line">    output(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;选择排序后的序列&quot;&lt;&lt;endl;</span><br><span class="line">    selectionSort(a,n);</span><br><span class="line">    output(a,n);</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>总结:</p>
+<ul>
+<li>思想:根据找最小值来确定是否进行交换。</li>
+<li>注意:在外循环中循环次数要-1,因为最后一个数不用比较;在内循环中当找到比min更小的数下标值将此下标赋值给min。</li>
+<li>选择排序算法是不稳定算法;时间复杂度平均时间和最坏情况都是O(n²);最好情况是O(n);空间复杂度O(l),以时间换空间。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/02/选择排序算法笔记/" data-id="cjunyp63i000crsvtimumppqh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-冒泡排序算法笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/02/冒泡排序算法笔记/" class="article-date">
+  <time datetime="2019-04-02T14:00:45.000Z" itemprop="datePublished">2019-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/02/冒泡排序算法笔记/">冒泡排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>冒泡排序算法稳定性:稳定。</li>
+<li>冒泡排序算法时间复杂度:平均时间O(n²),最坏情况O(n²),最好情况O(n)。</li>
+<li>冒泡算法空间复杂度:O(l)。</li>
+</ul>
+<p>#C++代码手写实现从小到大冒泡排序算法#<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">//显示序列元素函数</span><br><span class="line">void output(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">  for(int i=0;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">     cout&lt;&lt;a[i]&lt;&lt;&quot;\t&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">     cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">//输入序列元素函数</span><br><span class="line">void input(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">   for(int i=0;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">     a[i]=rand();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//冒泡排序算法实现从小到大排序函数</span><br><span class="line">void bubbleSort(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">    //外循环次数与元素个数有关</span><br><span class="line">    for(int i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">     //内循环次数随i的增加而减少</span><br><span class="line">     for(int j=0;j&lt;n-1-i;j++)</span><br><span class="line">     &#123;</span><br><span class="line">            if(a[j]&gt;a[j+1])</span><br><span class="line">            &#123;</span><br><span class="line">              swap(a[j],a[j+1]);</span><br><span class="line">            &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主函数实现功能</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n=0;</span><br><span class="line">    int a[20]=&#123;0&#125;;</span><br><span class="line">    cout&lt;&lt;&quot;请输入元素的个数&quot;&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    input(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;原序列&quot;&lt;&lt;endl;</span><br><span class="line">    output(a,n);</span><br><span class="line">    cout&lt;&lt;&quot;冒泡排序后序列&quot;&lt;&lt;endl;</span><br><span class="line">    bubbleSort(a,n);</span><br><span class="line">    output(a,n);</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结</p>
+<ul>
+<li>思想:冒泡算法就是两两比较将最大(最小)的值沉于底下,外循环次数是循环元素的个数次,内循环次数随着最大(最小)的值沉于底下而减少,每次内循环次数随i的增大而减少。</li>
+<li>注意:内循环需要n-1因为两两比较每次比较的个数都会比元素个数少一个即-1。</li>
+<li>冒泡排序是一种用时间换空间的排序方法,n越小时越好。</li>
+<li>最坏情况是把顺序的排列变成逆序,或者把逆序的数列变成顺序，最差时间复杂度O(n²)只是表示其操作次数的数量级。</li>
+<li>最好的情况是数据本来就有序,复杂度为O(n)。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/02/冒泡排序算法笔记/" data-id="cjunyp63a0007rsvtgtnjhl6v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-快速排序算法笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/31/快速排序算法笔记/" class="article-date">
+  <time datetime="2019-03-31T07:18:59.000Z" itemprop="datePublished">2019-03-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/31/快速排序算法笔记/">快速排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>快速排序算法稳定性：不稳定。</li>
+<li>快速排序算法时间复杂度:平均时间O(n<em>log2n),最坏情况O(n²),最好情况O(n</em>log2n)。</li>
+<li>快速排序算法空间复杂度:O(log2n)~O(n)。<br>#C++代码手写实现从小到大快速排序#<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">//输入数据函数 参数：数组a，元素的个数n</span><br><span class="line">void input(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">     int i=0;</span><br><span class="line">     for(;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">      a[i]=rand();//随机生成数放入数组a中</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//显示数据函数 参数: 数组a, 元素个数n</span><br><span class="line">void output(int a[],int n)</span><br><span class="line">&#123;</span><br><span class="line">     int i=0;</span><br><span class="line">    for(;i&lt;n;i++)</span><br><span class="line">     &#123;</span><br><span class="line">      cout&lt;&lt;a[i]&lt;&lt;&quot;\t&quot;; //输出元素</span><br><span class="line">     &#125;</span><br><span class="line">     cout&lt;&lt;endl;//换行</span><br><span class="line">&#125;</span><br><span class="line">//快速排序算法函数 参数:数组a,开始的下标start,结束的下标end</span><br><span class="line">void quickSort(int a[],int start,int end)</span><br><span class="line">&#123;</span><br><span class="line">    int i,j=0;//定义i,j下标</span><br><span class="line">    int key=0;//定义基准值</span><br><span class="line">    i=start;j=end;</span><br><span class="line">    key=a[i];</span><br><span class="line">    //判断start是否大于end，若不大于进行排序，大于则退出函数</span><br><span class="line">    if(start&gt;=end)</span><br><span class="line">   &#123;</span><br><span class="line">    return; </span><br><span class="line">    &#125;</span><br><span class="line">    //判断循环动态下标i是否大于j,若大于则将将key基准值赋值于下标为i的数组</span><br><span class="line">    while(i&lt;j)</span><br><span class="line">   &#123;</span><br><span class="line">     //从后往前找比key小的值，若找到则将找到的值存放在下标为i的数组中且i下标+1,若找不到则将j下标-1</span><br><span class="line">     while(i&lt;j&amp;&amp;a[j]&gt;key)//注意：要有i&lt;j的约束条件不然会造成i&gt;j的后果将有重复值出现</span><br><span class="line">     &#123;</span><br><span class="line">              j--;</span><br><span class="line">      &#125; </span><br><span class="line">              if(i&lt;j)</span><br><span class="line">            &#123;</span><br><span class="line">               a[i]=a[j]；</span><br><span class="line">               i++;</span><br><span class="line">             &#125; </span><br><span class="line">      //从前往后找比key大的值，若找到则将找到的值存放在下标为j的数组中且j下标-1，若找不到则将i下标+1</span><br><span class="line">        while(i&lt;j&amp;&amp;a[i]&lt;key)//注意：要有i&lt;j的约束条件不然会造成i&gt;j的后果将有重复值出现</span><br><span class="line">       &#123;</span><br><span class="line">        i++;</span><br><span class="line">       &#125;</span><br><span class="line">       if(i&lt;j)</span><br><span class="line">       &#123;</span><br><span class="line">        a[j]=a[i];</span><br><span class="line">        j--;</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">    //当i=j时将key基准值赋值于下标为i的数组</span><br><span class="line">    a[i]=key;</span><br><span class="line">   //按照前面的方法递归比key小的部分</span><br><span class="line">   quickSort(a,start,i-1);</span><br><span class="line">   //按照前面的方法递归比key大的部分</span><br><span class="line">    quickSort(a,i+1,end);</span><br><span class="line">&#125;</span><br><span class="line">//主函数实现相关方法</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">      int n=0;//定义元素个数变量</span><br><span class="line">      cout&lt;&lt;&quot;请输入所需元素的个数&quot;&lt;&lt;endl;</span><br><span class="line">      cin&gt;&gt;n;//给元素个数变量赋值</span><br><span class="line">      //定义数组a</span><br><span class="line">      int a[20]=&#123;0&#125;;</span><br><span class="line">      //为数组赋值（原序列）</span><br><span class="line">      input(a,n);</span><br><span class="line">      //显示原序列</span><br><span class="line">      cout&lt;&lt;&quot;原序列&quot;&lt;&lt;endl;</span><br><span class="line">      output(a,n);</span><br><span class="line">      //实现快速排序算法</span><br><span class="line">      quickSort(a,0,n-1);//开始下标为0，结束下标为元素个数-1</span><br><span class="line">       //显示快速排序后的序列</span><br><span class="line">       cout&lt;&lt;&quot;快速排序后的序列&quot;&lt;&lt;endl;</span><br><span class="line">       output(a,n);</span><br><span class="line">        return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>思想:分治法,选取基准值来进行筛选,分成小于基准值的部分和大于基准值的部分,再将其两部分用同样的方法进行递归。冒泡算法的扩展。</li>
+<li>注意:时刻清楚i,j值下标的位置,不能让i&lt;j的值。若等于则将基准值赋予i下标的数组值。</li>
+<li>n大时好,快速排序比较占用内存,内存随n的增大而增大,但却是效率高不稳定的排序算法。</li>
+<li>划分之后一边是一个,一边是n-1个,这种极端情况的时间复杂度就是O(n²)。</li>
+<li>最好的情况是每次都能均匀的划分序列,O(n*log2n)。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/31/快速排序算法笔记/" data-id="cjunyp63h000brsvtvz2gfxxh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-记录我的个人博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/30/记录我的个人博客/" class="article-date">
+  <time datetime="2019-03-30T08:31:12.000Z" itemprop="datePublished">2019-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/30/记录我的个人博客/">我的个人博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class hello</span><br><span class="line">&#123;</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line">     for(int i=1;i&lt;1000;i++)</span><br><span class="line">     &#123;</span><br><span class="line">     System.out.println(&quot;你好!我的个人博客,以后请多多指教.&quot;);</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   for(int i=1;i&lt;1000;i++)</span><br><span class="line">  &#123;</span><br><span class="line">   cout&lt;&lt;&quot;你好!我的个人博客,以后请多多指教.&quot;&lt;&lt;endl;</span><br><span class="line">  &#125;</span><br><span class="line">  system(&quot;pause&quot;);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/30/记录我的个人博客/" data-id="cjunyp63e000arsvt5p45ozvt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/18/Spring整合struts2笔记/">Spring整合struts2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring整合Web应用笔记/">Spring整合Web应用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring整合Hibernate笔记/">Spring整合Hibernate</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring事务管理笔记/">Spring事务管理</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring-JdbcTemplate笔记/">Spring JdbcTemplate</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Abner<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

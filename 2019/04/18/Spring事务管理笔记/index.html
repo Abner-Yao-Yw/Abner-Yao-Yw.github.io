@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Spring事务管理 | Abner-Yao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.事务就是一系列动作 如钱的交易2.事务的属性 原子性 一致性 隔离性 持久性  3.jar包12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-tx&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;$&amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring事务管理">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/Spring事务管理笔记/index.html">
+<meta property="og:site_name" content="Abner-Yao">
+<meta property="og:description" content="1.事务就是一系列动作 如钱的交易2.事务的属性 原子性 一致性 隔离性 持久性  3.jar包12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-tx&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;$&amp;#123">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-04-19T08:44:05.485Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring事务管理">
+<meta name="twitter:description" content="1.事务就是一系列动作 如钱的交易2.事务的属性 原子性 一致性 隔离性 持久性  3.jar包12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-tx&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;$&amp;#123">
+  
+    <link rel="alternate" href="/atom.xml" title="Abner-Yao" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Abner-Yao</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">专注后台开发</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Spring事务管理笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/18/Spring事务管理笔记/" class="article-date">
+  <time datetime="2019-04-18T05:19:31.000Z" itemprop="datePublished">2019-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring事务管理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-事务就是一系列动作-如钱的交易"><a href="#1-事务就是一系列动作-如钱的交易" class="headerlink" title="1.事务就是一系列动作 如钱的交易"></a>1.事务就是一系列动作 如钱的交易</h1><h1 id="2-事务的属性"><a href="#2-事务的属性" class="headerlink" title="2.事务的属性"></a>2.事务的属性</h1><ul>
+<li>原子性</li>
+<li>一致性</li>
+<li>隔离性</li>
+<li>持久性</li>
+</ul>
+<h1 id="3-jar包"><a href="#3-jar包" class="headerlink" title="3.jar包"></a>3.jar包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;springVersion&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="4-IOC容器管理Spring事务对象"><a href="#4-IOC容器管理Spring事务对象" class="headerlink" title="4.IOC容器管理Spring事务对象"></a>4.IOC容器管理Spring事务对象</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;&gt;&lt;/tx:annotation-driven&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="5-模拟钱交易的事务"><a href="#5-模拟钱交易的事务" class="headerlink" title="5.模拟钱交易的事务"></a>5.模拟钱交易的事务</h1><ul>
+<li><p>扫描器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:component-scan base-package=&quot;com.controller,com.service,com.repository,com.entites,com.Aop&quot;&gt;&lt;/context:component-scan&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JdbcTemplate</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事务管理器和启动事务注解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;&gt;&lt;/tx:annotation-driven&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>持久层注解repository</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package com.repository;</span><br><span class="line"></span><br><span class="line">public interface AccountRepository &#123;</span><br><span class="line">    //交易</span><br><span class="line">    public void exchange(Integer id,Integer od,Integer money);</span><br><span class="line">    //添加</span><br><span class="line">    public void insert(String name,Integer money);</span><br><span class="line">    //存钱</span><br><span class="line">    public void increase(Integer id,Integer money);</span><br><span class="line">    //取钱</span><br><span class="line">    public void dicrease(Integer id,Integer money);</span><br><span class="line">    //删除用户</span><br><span class="line">    public void delete(Integer id);</span><br><span class="line">    //查询用户</span><br><span class="line">    public void selectAccount(Integer id);</span><br><span class="line">    //查询所有用户</span><br><span class="line">    public void selectAll();</span><br><span class="line">    //检测是否有用户</span><br><span class="line">    public  void selectById(Integer id);</span><br><span class="line">    //检测金额是否足够</span><br><span class="line">    public void selectMoney(Integer id ,Integer money);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">package com.repository;</span><br><span class="line"></span><br><span class="line">import com.Exception.IdException;</span><br><span class="line">import com.Exception.MoneyException;</span><br><span class="line">import com.entites.Account;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.jdbc.core.BeanPropertyRowMapper;</span><br><span class="line">import org.springframework.jdbc.core.JdbcTemplate;</span><br><span class="line">import org.springframework.jdbc.core.RowMapper;</span><br><span class="line">import org.springframework.stereotype.Repository;</span><br><span class="line">import org.springframework.transaction.annotation.Isolation;</span><br><span class="line">import org.springframework.transaction.annotation.Propagation;</span><br><span class="line">import org.springframework.transaction.annotation.Transactional;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">@Repository(&quot;accountRepository&quot;)</span><br><span class="line">public class AccountRepositoryImpl implements AccountRepository &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line">    @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)</span><br><span class="line">    @Override</span><br><span class="line">    public void exchange(Integer id, Integer od, Integer money) &#123;</span><br><span class="line">        dicrease(id, money);</span><br><span class="line">        increase(od, money);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void insert(String name, Integer money) &#123;</span><br><span class="line">        String sql = &quot;insert into exchange(name,money) values(?,?)&quot;;</span><br><span class="line">        jdbcTemplate.update(sql, name, money);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void increase(Integer id, Integer money) &#123;</span><br><span class="line">        selectById(id);</span><br><span class="line">        String sql = &quot;update exchange set money=money+? where id=?&quot;;</span><br><span class="line">        jdbcTemplate.update(sql, money, id);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void delete(Integer id) &#123;</span><br><span class="line">        selectById(id);</span><br><span class="line">        String sql = &quot;delete from exchange where id=?&quot;;</span><br><span class="line">        jdbcTemplate.update(sql, id);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void selectAccount(Integer id) &#123;</span><br><span class="line">        RowMapper&lt;Account&gt; rowMapper = new BeanPropertyRowMapper&lt;&gt;(Account.class);</span><br><span class="line">        String sql = &quot;select * from exchange where id=?&quot;;</span><br><span class="line">        Account account = jdbcTemplate.queryForObject(sql, rowMapper, id);</span><br><span class="line">        System.out.println(account.toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void selectAll() &#123;</span><br><span class="line">        RowMapper&lt;Account&gt; rowMapper = new BeanPropertyRowMapper&lt;&gt;(Account.class);</span><br><span class="line">        String sql = &quot;select* from  exchange&quot;;</span><br><span class="line">        List&lt;Account&gt; accounts = jdbcTemplate.query(sql, rowMapper);</span><br><span class="line">        for (Account account : accounts) &#123;</span><br><span class="line">            System.out.println(account.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void dicrease(Integer id, Integer money) &#123;</span><br><span class="line">        selectById(id);</span><br><span class="line">        selectMoney(id, money);</span><br><span class="line">        String sql = &quot;update exchange set money=money-? where id=?&quot;;</span><br><span class="line">        jdbcTemplate.update(sql, money, id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void selectById(Integer id) &#123;</span><br><span class="line">        String sql = &quot;select name from exchange where id=?&quot;;</span><br><span class="line">        String name = jdbcTemplate.queryForObject(sql, String.class, id);</span><br><span class="line">        if (name == null) &#123;</span><br><span class="line">            throw new IdException(&quot;找不到该用户请重新输入&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;找到该用户&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void selectMoney(Integer id, Integer money) &#123;</span><br><span class="line">        String sql = &quot;select money from exchange where id=?&quot;;</span><br><span class="line">        int i = jdbcTemplate.queryForObject(sql, Integer.class, id);</span><br><span class="line">        if (i &lt; 0 || i &lt; money) &#123;</span><br><span class="line">            throw new MoneyException(&quot;余额不足,请及时充值...&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;开始转钱...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>业务逻辑层</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.service;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public interface AccountService &#123;</span><br><span class="line">    public void change();</span><br><span class="line">    public  void insert();</span><br><span class="line">    public void delete();</span><br><span class="line">    public void findAccount();</span><br><span class="line">    public void findAll();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package com.service;</span><br><span class="line"></span><br><span class="line">import com.repository.AccountRepository;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">@Service(&quot;accountService&quot;)</span><br><span class="line">public class AccountServiceImpl implements AccountService &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private AccountRepository accountRepository;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void change() &#123;</span><br><span class="line">        accountRepository.exchange(13, 14, 10000);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void insert() &#123;</span><br><span class="line">        accountRepository.insert(&quot;EE&quot;, 56789);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void delete() &#123;</span><br><span class="line">        accountRepository.delete(10);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void findAccount() &#123;</span><br><span class="line">        accountRepository.selectAccount(20);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void findAll() &#123;</span><br><span class="line">        accountRepository.selectAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>AOP切面层</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">package com.entites;</span><br><span class="line"></span><br><span class="line">import org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line">import org.aspectj.lang.annotation.*;</span><br><span class="line">import org.springframework.core.annotation.Order;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">@Aspect</span><br><span class="line">@Component</span><br><span class="line">@Order(1)</span><br><span class="line">public class Aop &#123;</span><br><span class="line">    @Pointcut(value =&quot;execution(* com.entites.User.hello(..))&quot; )</span><br><span class="line">    public void method()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    @Before(&quot;method()&quot;)</span><br><span class="line">    public void before()</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;前置通知...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @After(&quot;method()&quot;)</span><br><span class="line">    public  void after()</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;后置通知&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @AfterReturning(value = &quot;method()&quot;,returning = &quot;result&quot;)</span><br><span class="line">    public void returnning(Object result)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;返回通知&quot;+result);</span><br><span class="line">    &#125;</span><br><span class="line">    @AfterThrowing(value = &quot;method()&quot;,throwing = &quot;ex&quot;)</span><br><span class="line">    public void exception(Exception ex)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;异常通知&quot;+ex);</span><br><span class="line">    &#125;</span><br><span class="line">    @Around(&quot;method()&quot; )</span><br><span class="line">    public void around(ProceedingJoinPoint proceedingJoinPoint)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;前置通知&quot;);</span><br><span class="line">        Object result;</span><br><span class="line">        try &#123;</span><br><span class="line">            result=proceedingJoinPoint.proceed();</span><br><span class="line">            System.out.println(&quot;返回通知&quot;+result);</span><br><span class="line">        &#125; catch (Throwable throwable) &#123;</span><br><span class="line">            throwable.printStackTrace();</span><br><span class="line">            System.out.println(&quot;异常通知&quot;+throwable);</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            String name=proceedingJoinPoint.getSignature().getName();</span><br><span class="line">            List&lt;Object&gt; args= Arrays.asList(proceedingJoinPoint.getArgs());</span><br><span class="line">            System.out.println(&quot;后置通知&quot;+name+&quot;\t&quot;+args);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>异常层</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.Exception;</span><br><span class="line"></span><br><span class="line">public class IdException extends RuntimeException &#123;</span><br><span class="line">    public IdException(String message) &#123;</span><br><span class="line">        System.out.println(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.Exception;</span><br><span class="line"></span><br><span class="line">public class MoneyException extends RuntimeException&#123;</span><br><span class="line">    public MoneyException(String message) &#123;</span><br><span class="line">        System.out.println(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试层</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">package com.main;</span><br><span class="line"></span><br><span class="line">import com.service.AccountService;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ApplicationContext ctx = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span><br><span class="line">        AccountService accountService = (AccountService) ctx.getBean(&quot;accountService&quot;);</span><br><span class="line">        accountService.change();</span><br><span class="line">        accountService.insert();</span><br><span class="line">        accountService.delete();</span><br><span class="line">        accountService.findAccount();</span><br><span class="line">        accountService.findAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">exchange	前置通知</span><br><span class="line">找到该用户</span><br><span class="line">开始转钱...</span><br><span class="line">找到该用户</span><br><span class="line">exchange	后置通知</span><br><span class="line">exchange	返回通知	null</span><br><span class="line">insert	前置通知</span><br><span class="line">insert	后置通知</span><br><span class="line">insert	返回通知	null</span><br><span class="line">delete	前置通知</span><br><span class="line">找到该用户</span><br><span class="line">delete	后置通知</span><br><span class="line">delete	返回通知	null</span><br><span class="line">selectAccount	前置通知</span><br><span class="line">账户20	姓名EE	现金额56789</span><br><span class="line">selectAccount	后置通知</span><br><span class="line">selectAccount	返回通知	null</span><br><span class="line">selectAll	前置通知</span><br><span class="line">账户13	姓名EE	现金额10000</span><br><span class="line">账户14	姓名EE	现金额118789</span><br><span class="line">账户15	姓名EE	现金额56789</span><br><span class="line">账户17	姓名EE	现金额56789</span><br><span class="line">账户19	姓名EE	现金额56789</span><br><span class="line">账户20	姓名EE	现金额56789</span><br><span class="line">账户21	姓名EE	现金额56789</span><br><span class="line">账户22	姓名EE	现金额56789</span><br><span class="line">账户23	姓名EE	现金额56789</span><br><span class="line">账户24	姓名EE	现金额56789</span><br><span class="line">账户25	姓名EE	现金额56789</span><br><span class="line">selectAll	后置通知</span><br><span class="line">selectAll	返回通知	null</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事务管理（钱交易的事务不可分开）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)</span><br><span class="line">   @Override</span><br><span class="line">   public void exchange(Integer id, Integer od, Integer money) &#123;</span><br><span class="line">       dicrease(id, money);</span><br><span class="line">       increase(od, money);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/18/Spring事务管理笔记/" data-id="cjunyp641000grsvtqezorpxv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/18/Spring整合Hibernate笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Spring整合Hibernate
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/18/Spring-JdbcTemplate笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Spring JdbcTemplate</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/18/Spring整合struts2笔记/">Spring整合struts2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring整合Web应用笔记/">Spring整合Web应用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring整合Hibernate笔记/">Spring整合Hibernate</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring事务管理笔记/">Spring事务管理</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/18/Spring-JdbcTemplate笔记/">Spring JdbcTemplate</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Abner<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
